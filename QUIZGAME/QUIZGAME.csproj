@@ -34,6 +34,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Quizes\Music.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Quizes\Sport.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

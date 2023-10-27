@@ -15,28 +15,36 @@ using System.Windows.Shapes;
 
 namespace QUIZGAME
 {
-    /// <summary>
+    /// <summary> 
     /// Interaction logic for QuizView.xaml
     /// </summary>
     public partial class QuizView : Window
     {
-        private int currentIndex = 0;
+        private int currentIndex =0;
         public string CounterQuestion {  get; set; }
         public Question CurrentQuestion { get; set; }
         public List<Question> questions {  get; set; }
-        public QuizView()
+
+        private int score = 0;
+        public QuizView() 
         {
             InitializeComponent();
-            DataContext = this;
-            
+            ScoreText.Text = $"Score: {score}";
+
         }
 
         private void ShowQuestion()
         {
-            currentIndex++;
+
             CurrentQuestion = questions[currentIndex];
-            CounterQuestion = $"{currentIndex + 1} of {questions.Count}";
+            CurrentQuestionText.Text = CurrentQuestion.Statement;
+            AnswerA.Content = CurrentQuestion.Answers[0];
+            AnswerB.Content = CurrentQuestion.Answers[1];
+            AnswerC.Content = CurrentQuestion.Answers[2];
+            AnswerD.Content = CurrentQuestion.Answers[3];
+            CounterQuestion = $"Question {currentIndex + 1} of {questions.Count}";
             CounterQuestionText.Text = CounterQuestion;
+            this.DataContext = CurrentQuestion;
         }
 
         private void AnswerButton_Click(object sender, RoutedEventArgs e)
@@ -44,12 +52,17 @@ namespace QUIZGAME
             if (int.Parse((sender as Button).Tag.ToString()) == CurrentQuestion.CorrectAnswers)
             {
                 MessageBox.Show("Good Job!");
+                currentIndex++;
+                score++;
+                ScoreText.Text = $"{score}";
                 ShowQuestion();
                 
             }
             else
             {
                 MessageBox.Show("Wrong answer");
+                currentIndex++;
+                ShowQuestion();
             }
         }
 
@@ -62,8 +75,17 @@ namespace QUIZGAME
         {
             CurrentQuestion = questions.First();
             CurrentQuestionText.Text = CurrentQuestion.Statement;
-            CounterQuestion = $"{currentIndex + 1} of {questions.Count}";
+            CounterQuestion = $" Question {currentIndex + 1} of {questions.Count}";
             CounterQuestionText.Text = CounterQuestion;
+            ShowQuestion();
+            this.DataContext = CurrentQuestion;
+        }
+
+        private void GoBackToCategoryButton_Click(object sender, RoutedEventArgs e)
+        {
+            CategoriesView backToCatagories = new CategoriesView();
+            backToCatagories.Show();
+            Close();
         }
     }
 }

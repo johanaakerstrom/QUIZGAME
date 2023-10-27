@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QUIZGAME"
         mc:Ignorable="d"
-        Title="CategoriesView" Height="450" Width="600" Background="#FF5BD1F3">
+        Title="CategoriesView" Height="500" Width="600" Background="#FF5BD1F3">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
