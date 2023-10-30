@@ -24,7 +24,7 @@ namespace QUIZGAME
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Quiz> quizes {  get; set; } = new List<Quiz>();
+        public List<Question> quizes {  get; set; } = new List<Question>();
         public MainWindow()
         {
             InitializeComponent();
@@ -34,7 +34,15 @@ namespace QUIZGAME
         private void ToSeeCategory_Click(object sender, RoutedEventArgs e)
         {
             CategoriesView theCategories = new CategoriesView();
-            theCategories.selectedQuiz = quizes.First();
+
+            // Merging all questions from all quizzes into a single Quiz object
+            Quiz mergedQuiz = new Quiz
+            {
+                Title = "Combined Quiz",
+                Questions = quizes.SelectMany(q => q.Questions).ToList()
+            };
+
+            theCategories.selectedQuiz = mergedQuiz;
             theCategories.Show();
             Close();
         }
@@ -46,7 +54,7 @@ namespace QUIZGAME
             foreach (FileInfo file in QuizFolder.EnumerateFiles("*.json"))
             {
                 string json = file.OpenText().ReadToEnd();
-                quizes.Add(JsonSerializer.Deserialize<Quiz>(json)); 
+                quizes.Add(JsonSerializer.Deserialize<Question>(json)); 
             }
         }
 

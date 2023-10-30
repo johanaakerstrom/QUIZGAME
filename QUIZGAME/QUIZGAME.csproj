@@ -5,6 +5,7 @@
     <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <StartupObject>QUIZGAME.App</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,6 +35,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Quizes\Geography.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Quizes\Math.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Quizes\Music.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

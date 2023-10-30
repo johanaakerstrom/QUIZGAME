@@ -20,7 +20,7 @@ namespace QUIZGAME
     /// </summary>
     public partial class QuizView : Window
     {
-        private int currentIndex =0;
+        private int currentIndex = 0;
         public string CounterQuestion {  get; set; }
         public Question CurrentQuestion { get; set; }
         public List<Question> questions {  get; set; }
@@ -35,15 +35,24 @@ namespace QUIZGAME
 
         private void ShowQuestion()
         {
+            if (currentIndex < questions.Count)
+            {
+                
+                CurrentQuestion = questions[currentIndex];
+                CurrentQuestionText.Text = CurrentQuestion.Statement;
+                AnswerA.Content = CurrentQuestion.Answers[0];
+                AnswerB.Content = CurrentQuestion.Answers[1];
+                AnswerC.Content = CurrentQuestion.Answers[2];
+                AnswerD.Content = CurrentQuestion.Answers[3];
 
-            CurrentQuestion = questions[currentIndex];
-            CurrentQuestionText.Text = CurrentQuestion.Statement;
-            AnswerA.Content = CurrentQuestion.Answers[0];
-            AnswerB.Content = CurrentQuestion.Answers[1];
-            AnswerC.Content = CurrentQuestion.Answers[2];
-            AnswerD.Content = CurrentQuestion.Answers[3];
+            }
+            else
+            {
+                MessageBox.Show($"Du har nu svarat på alla frågor och du fick {score} poäng");
+                
+            }
             CounterQuestion = $"Question {currentIndex + 1} of {questions.Count}";
-            CounterQuestionText.Text = CounterQuestion;
+            CounterQuestionText.Text = CounterQuestion; 
             this.DataContext = CurrentQuestion;
         }
 
@@ -81,10 +90,10 @@ namespace QUIZGAME
             this.DataContext = CurrentQuestion;
         }
 
-        private void GoBackToCategoryButton_Click(object sender, RoutedEventArgs e)
+        private void GoBackToMainViewButton_Click(object sender, RoutedEventArgs e)
         {
-            CategoriesView backToCatagories = new CategoriesView();
-            backToCatagories.Show();
+            MainWindow newQuizGame = new MainWindow();
+            newQuizGame.Show();
             Close();
         }
     }

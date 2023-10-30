@@ -8,9 +8,9 @@ namespace QUIZGAME.Models
 {
     public class Quiz
     {
-        public IEnumerable<Question> Questions { get; set; }
-        
-        public string Title {  get; set; }
+        public IEnumerable <Question> Questions { get; set; }
+
+        public string Title { get; set; }
 
         public Quiz(string _)
         {

@@ -44,6 +44,72 @@
       ],
       "CorrectAnswers": 0,
       "Category": "Sport"
+    },
+    {
+      "Statement": "Vilken sport använder en oval boll och spelas huvudsakligen i USA?",
+      "Answers": [
+        "Basket",
+        "Fotboll",
+        "Baseboll",
+        "Amerikansk fotboll"
+      ],
+      "CorrectAnswers": 3,
+      "Category": "Sport"
+    },
+    {
+      "Statement": "Vem är den mest framgångsrika manliga tennisspelaren genom tiderna?",
+      "Answers": [
+        "Novak Djokovic",
+        "Rafael Nadal",
+        "Roger Federer",
+        "Andre Agassi"
+      ],
+      "CorrectAnswers": 2,
+      "Category": "Sport"
+    },
+    {
+      "Statement": "Vilket land är känt för att vara födelseplatsen för sporten rugby?",
+      "Answers": [
+        "Australien",
+        "Irland",
+        "Nya Zeeland",
+        "Storbritannien"
+      ],
+      "CorrectAnswers": 2,
+      "Category": "Sport"
+    },
+    {
+      "Statement": "Vilken sport använder en liten boll och spelas med en järnklubba på en grön bana?",
+      "Answers": [
+        "Golf",
+        "Tennis",
+        "Padel",
+        "Squash"
+      ],
+      "CorrectAnswers": 0,
+      "Category": "Sport"
+    },
+    {
+      "Statement": "Vad är den längsta distansen i friidrott?",
+      "Answers": [
+        "200 meter",
+        "400 meter",
+        "10.000 meter",
+        "100 meter"
+      ],
+      "CorrectAnswers": 2,
+      "Category": "Sport"
+    },
+    {
+      "Statement": "Vilket land är känt för sin dominans inom cricket?",
+      "Answers": [
+        "Irland",
+        "USA",
+        "Indien",
+        "Australien"
+      ],
+      "CorrectAnswers": 2,
+      "Category": "Sport"
     }
   ]
 }

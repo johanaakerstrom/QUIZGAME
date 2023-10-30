@@ -19,7 +19,7 @@ namespace QUIZGAME
 {
     public partial class CategoriesView : Window
     {
-        public Quiz selectedQuiz { get; set; }
+        public Question selectedQuiz { get; set; }
         public CategoriesView()
         {
             InitializeComponent();
@@ -44,5 +44,34 @@ namespace QUIZGAME
             startMusic.Show();
             Close();
         }
+
+        private void MathQuizButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<Question> mathQuestion = selectedQuiz.Questions.Where(q => q.Category == "Math").ToList();
+
+            StartView startMath = new StartView();
+            startMath.questions = mathQuestion;
+            startMath.Show();
+            Close();
+        }
+
+        private void GeographyQuizButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<Question> geographyQuestion = selectedQuiz.Questions.Where(q => q.Category == "Geography").ToList();
+
+            StartView startGeography = new StartView();
+            startGeography.questions = geographyQuestion;
+            startGeography.Show();
+            Close();
+        }
+
+        private void EditQuizButton_Click(object sender, RoutedEventArgs e)
+        {
+            EditQuizView editQuiz = new EditQuizView();
+            editQuiz.Show();
+            
+        }
+
+        
     }
 }
